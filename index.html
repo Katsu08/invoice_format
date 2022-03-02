@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Orden de Compra</title>
+        <style>
+            .container {
+                padding: 2rem;
+                width: 1000px;
+                margin: 0 auto;
+            }
+            .header {
+                display: grid;
+                grid-template-columns: 0.7fr 0.3fr;
+            }
+            .header__enterprise {
+                display: flex;
+            }
+            .header__enterprise img {
+                max-width: 100%;
+                min-width: 120px;
+                margin-right: 20px;
+                object-fit: contain;
+                max-height: 120px;
+            }
+            .header__invoice {
+                justify-self: end;
+                align-self: center;
+                padding: 2rem;
+                border: 1px solid black;
+            }
+            .header__realname, .header__direction, .header__cellphone {
+                font-size: 0.8rem;
+            }
+            .header__invoice_number {
+                font-size: 1.2rem;
+            }
+            .information__list {
+                list-style: none;
+                padding: 10px 0px;
+            }
+            .information__title {
+                text-transform: uppercase;
+                display: inline-block;
+                min-width: 250px;
+            }
+            .invoice {
+                width: 100%;
+                border-collapse: collapse;
+            }
+            .invoice__descripcion--title {
+                text-align: left;
+            }
+            .invoice__cant, .invoice__unid, .invoice__punit, .invoice__descuento {
+                text-align: center;
+            }
+            .invoice__cant, .invoice__modelo, .invoice__descripcion, .invoice__lote, .invoice__serie, .invoice__total, .invoice__unid, .invoice__punit, .invoice__descuento {
+                border-bottom: 1px solid black;
+            }
+            .invoice__total {
+                text-align: right;
+            }
+            .invoice__header {
+                background: rgb(236, 236, 236);
+                text-transform: uppercase;
+                border-top: 2px solid black;
+                border-bottom: 2px solid black;
+            }
+            .total {
+                margin-top: 20px;
+                margin-left: auto;
+                width: max-content;
+            }
+            .total__item {
+                text-transform: uppercase;
+                font-weight: bold;               
+                margin-top: 8px;
+            }
+            .total__title {
+                width: 200px;
+                text-align: right;
+                margin-right: 10px;
+                display: inline-block;
+            }
+            .total__parsed_amount {
+                text-transform: uppercase;
+                margin-bottom: 50px;
+            }
+            .payment_method {
+                font-weight: bold;
+            }
+            .payment_method__title {
+                text-transform: uppercase;
+            }
+            .payments__title {
+                margin-top: 20px;
+                font-weight: bold;
+                text-transform: uppercase;
+            }
+            .seller__title {
+                font-weight: bold;
+                margin-bottom: 4px;
+            }
+
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <div class="header">
+                <div class="header__enterprise">
+                    <img src="https://static.vecteezy.com/packs/media/components/global/search-explore-nav/img/vectors/term-bg-1-666de2d941529c25aa511dc18d727160.jpg">
+                    <div class="header__information">
+                        <div class="header__name">demo</div>
+                        <div class="header__ruc">RUC 20234123234</div>
+                        <div class="header__realname">VILLA MEDICA TEST123 JIT123 MANZANA, LIMA LIMA LIMA</div>
+                        <div class="header__direction">D. Comercial Villa Medica</div>
+                        <div class="header__cellphone">0920290755</div>
+                    </div>
+                </div>
+                <div class="header__invoice">
+                    Factura Electrónica<br>
+                    <span class="header__invoice_number">
+                        FE01-00000472
+                    </span>
+                </div>
+            </div>
+            <div class="information">
+                <ul class="information__list">
+                    <li>
+                        <span class="information__title">Fecha de emisión</span>: 2021-09-15
+                    </li>
+                    <li>
+                        <span class="information__title">Fecha de vencimiento</span>: 2021-09-15
+                    </li>
+                    <li>
+                        <span class="information__title">Cliente</span>: NUBEPVSOFT E.I.R.L.
+                    </li>
+                    <li>
+                        <span class="information__title">RUC</span>: 20603168985
+                    </li>
+                    <li>
+                        <span class="information__title">Dirección</span>: AV. URUGUYA NRO. 346 INT. 103 ~~ (A MEDIA CUADRA AV. WILSON)
+                    </li>
+                    <li>
+                        <span class="information__title">Anticipo</span>: 8001-684
+                    </li>
+                </ul>
+            </div>
+            <main>
+                <table class="invoice">
+                    <thead class="invoice__header">
+                        <tr class="invoice__row invoice_row--header">
+                            <th>
+                                Cant.
+                            </th>
+                            <th>
+                                Unidad
+                            </th>
+                            <th class="invoice__descripcion--title">
+                                Descripción
+                            </th>
+                            <th>
+                                Modelo
+                            </th>
+                            <th>
+                                Lote
+                            </th>
+                            <th>
+                                Serie
+                            </th>
+                            <th>
+                                P. Unit
+                            </th>
+                            <th>
+                                DTO.
+                            </th>
+                            <th class="invoice__total">
+                                Total
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody class="invoice_body">
+                        <tr class="invoice__row">
+                            <td class="invoice__cant">
+                                1
+                            </td>
+                            <td class="invoice__unid">
+                                ZZ
+                            </td>
+                            <td class="invoice__descripcion">
+                                Examen Odontológico
+                            </td>
+                            <td class="invoice__modelo">
+                            </td>
+                            <td class="invoice__lote">
+                            </td>
+                            <td class="invoice__serie">
+                            </td>
+                            <td class="invoice__punit">
+                                30.00
+                            </td>
+                            <td class="invoice__descuento">
+                                0
+                            </td>
+                            <td class="invoice__total">
+                                30.00
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="total">
+                    <div class="total__item">
+                        <span class="total__title">OP. EXONERADAS: S/ </span> 99.00
+                    </div>
+                    <div class="total__item">
+                        <span class="total__title">Anticipo: S/ </span> 101.00
+                    </div>
+                    <div class="total__item">
+                        <span class="total__title">IGV: S/ </span> 0.00
+                    </div>
+                    <div class="total__item">
+                        <span class="total__title">TOTAL A PAGAR: S/</span> 99.00
+                    </div>
+                </div>
+                <div class="total__parsed_amount">
+                    Son: <strong>noventa y nueve con 00/100 soles</strong>
+                </div>
+                <div class="payment_method">
+                    <span class="payment_method__title">Condición de pago</span>: Contado
+                </div>
+                <div class="payments">
+                    <div class="payments__title">
+                        Pagos:
+                    </div>
+                    <ul class="payments_list">
+                        <li>
+                            Contado - S/ 99
+                        </li>
+                    </ul>
+                </div>
+                <div class="seller">
+                    <div class="seller__title">
+                        Vendedor:
+                    </div>
+                    Administrador General
+                </div>
+            </main>
+        </div>
+    </body>
+</html>
